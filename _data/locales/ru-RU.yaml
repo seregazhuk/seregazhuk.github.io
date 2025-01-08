@@ -1,0 +1,24 @@
+copyright:
+    # Shown at the bottom of the post
+    license:
+        template: ' '
+
+post:
+    written_by: Автор
+    posted: Опубликовано
+    updated: Обновлено
+    words: слов
+    pageview_measure: просмотров
+    read_time:
+        unit: мин.
+        prompt: чтения
+    relate_posts: Похожие посты
+    share: Поделиться
+    button:
+        next: Следующий пост
+        previous: Предыдущий пост
+        copy_code:
+            succeed: Скопировано!
+        share_link:
+            title: Скопировать ссылку
+            succeed: Ссылка успешно скопирована!
