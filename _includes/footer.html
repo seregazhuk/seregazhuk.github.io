@@ -12,11 +12,7 @@
         <time>{{ 'now' | date: '%Y' }}</time>
 
         {% if site.data.locales[include.lang].copyright.brief %}
-        <span
-                data-bs-toggle="tooltip"
-                data-bs-placement="top"
-                title="{{ site.data.locales[include.lang].copyright.verbose }}"
-        >
+        <span>
         {{- site.data.locales[include.lang].copyright.brief -}}
       </span>
         {% endif %}
