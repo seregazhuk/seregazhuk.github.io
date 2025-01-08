@@ -123,7 +123,9 @@ SEQUENCE
 
 ```php
 $privKeyHex = bin2hex($ecPrivateKeyInfo->at(1)->asOctetString()->string());  
-$pubKeyHex = bin2hex($ecPrivateKeyInfo->at(3)->asTagged()->asExplicit()->asBitString()->string());
+$pubKeyHex = bin2hex(
+    $ecPrivateKeyInfo->at(3)->asTagged()->asExplicit()->asBitString()->string()
+);
 ```
 
 Приватный и публичный ключи у нас есть, теперь нужно из EC публичного ключа получить адрес Ethereum. Для этого нужно:
@@ -181,7 +183,9 @@ $ecPrivateKeyInfo = $ecPrivateKey->toASN1();
 
 // Extract private/public keys from ASN.1
 $privKeyHex = bin2hex($ecPrivateKeyInfo->at(1)->asOctetString()->string());  
-$pubKeyHex = bin2hex($ecPrivateKeyInfo->at(3)->asTagged()->asExplicit()->asBitString()->string());  
+$pubKeyHex = bin2hex(
+    $ecPrivateKeyInfo->at(3)->asTagged()->asExplicit()->asBitString()->string()
+);  
 
 // Generate address from public key
 $trimmedPubKeyHex = substr($pubKeyHex,2);  
