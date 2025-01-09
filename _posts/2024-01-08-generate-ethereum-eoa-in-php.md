@@ -7,6 +7,11 @@ tags: [ethereum, address generation]     # TAG names should always be lowercase
 
 ### Что такое адрес в Ethereum?
 
+>**TLDR:** разбираться во всех этих хэшах и структурах данных конечно очень ~~не~~интересно, но что если нужно уже готовое решение? Есть библиотека [kornrunner/php-ethereum-address](https://github.com/kornrunner/php-ethereum-address){:target="_blank"}.
+{: .prompt-info } 
+
+
+
 Адрес представляет собой 20-байтовое шестнадцатеричное число, которое используется для идентификации аккаунта в блокчейне Ethereum. Адрес - это уникальный идентификатор, который используется для отправки, получения и хранения Eth, токенов, а так же доступа к децентрализованным приложениям. Любой адрес состоит из строки буквенно-цифровых символов и обычно начинается с `0x`, что указывает на его шестнадцатеричный формат.
 
 ### Типы аккаунтов (адресов)
@@ -239,26 +244,3 @@ preg_match($template, $asn1Hex, $matches);
 ```
 
 В `$matches[1]` будет приватный ключ, а в `$matches[2]` — публичный. 
-
-## Библиотеки
-Разбираться во всех этих хэшах и структурах данных конечно очень ~~не~~интересно, но что если хочется готового решения? Есть библиотека [kornrunner/php-ethereum-address](https://github.com/kornrunner/php-ethereum-address):
-
-```bash
-composer require kornrunner/ethereum-address
-```
-
-Где сразу из коробки можно как сгенерировать новый адрес, так загрузить из приватного ключа:
-
-```php
-use kornrunner\Ethereum\Address;
-
-$address = new Address();
-// or $address = new Address($privateKey);
-
-echo sprintf(  
-    "Address: %s\nPrivate key: 0x%s\nPublic key: 0x%s\n",  
-    $address->get(),  
-    $address->getPrivateKey(),  
-    $address->getPublicKey()  
-) ;
-```
