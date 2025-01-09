@@ -7,7 +7,7 @@ tags: [ethereum, address generation]     # TAG names should always be lowercase
 
 ### Что такое адрес в Ethereum?
 
->**TLDR:** разбираться во всех этих хэшах и структурах данных конечно очень ~~не~~интересно, но что если нужно уже готовое решение? Есть библиотека [kornrunner/php-ethereum-address](https://github.com/kornrunner/php-ethereum-address){:target="_blank"}.
+>**TLDR:** разбираться во всех этих хэшах и структурах данных конечно очень ~~не~~интересно, но что если нужно уже готовое решение? Берём библиотеку [kornrunner/php-ethereum-address](https://github.com/kornrunner/php-ethereum-address){:target="_blank"}.
 {: .prompt-info } 
 
 
