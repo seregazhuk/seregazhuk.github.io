@@ -2,7 +2,8 @@
 title: Генерируем Ethereum EOA адреса в PHP 
 date: 2024-01-08
 categories: [Blockchain, Ethereum]
-tags: [ethereum, address generation]     # TAG names should always be lowercase
+description: Алгоритм генерации Ethereum EOA адреса в PHP
+tags: [ethereum, address generation] 
 ---
 
 ### Что такое адрес в Ethereum?
