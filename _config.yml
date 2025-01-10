@@ -227,6 +227,3 @@ jekyll-archives:
 
 google_analytics:
   id: "G-79ML1VSZ3X"
-
-plugins:
-  - jekyll-sitemap
