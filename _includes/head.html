@@ -124,7 +124,10 @@
 
     {% include metadata-hook.html %}
 
-    {% if jekyll.environment == 'production' and site.google_analytics %}
-        {% include analytics.html %}
+    {% if jekyll.environment == 'production' %}
+        {% if site.google_analytics %}
+            {% include analytics.html %}
+        {% endif %}
+        {% include yandex_metrika.html %}
     {% endif %}
 </head>
