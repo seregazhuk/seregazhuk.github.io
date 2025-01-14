@@ -2,7 +2,6 @@
 title: Генерируем Ethereum EOA адреса в PHP 
 date: 2024-01-08
 categories: [Blockchain, Ethereum]
-description: Алгоритм генерации Ethereum EOA адреса в PHP
 tags: [ethereum, address generation] 
 ---
 
