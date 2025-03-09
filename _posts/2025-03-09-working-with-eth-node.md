@@ -25,7 +25,7 @@ composer require drlecks/simple-web3-php
 И попробуем подключиться к публичной ноде `https://eth.public-rpc.com` и узнать номер текущего блока в блокчейне:
 
 ```php
-$node = new SWeb3(('https://eth.public-rpc.com'));
+$node = new SWeb3('https://eth.public-rpc.com');
 $res = $node->call('eth_blockNumber', []);
 ```
 
