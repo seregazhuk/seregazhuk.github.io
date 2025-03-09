@@ -46,7 +46,7 @@ stdClass Object
 блока в читаемом виде - нужно будет явно его привести в 10-ую систему:
 
 ```php
-$node = new SWeb3(('https://eth.public-rpc.com'));
+$node = new SWeb3('https://eth.public-rpc.com');
 $res = $node->call('eth_blockNumber', []);
 $block = Utils::hexToBn($res->result);
 echo 'Block number: ' . $block->toString() . PHP_EOL;
