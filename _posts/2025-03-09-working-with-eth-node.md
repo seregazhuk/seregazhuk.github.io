@@ -25,6 +25,8 @@ composer require drlecks/simple-web3-php
 И попробуем подключиться к публичной ноде `https://eth.public-rpc.com` и узнать номер текущего блока в блокчейне:
 
 ```php
+use SWeb3\SWeb3;
+
 $node = new SWeb3('https://eth.public-rpc.com');
 $res = $node->call('eth_blockNumber', []);
 ```
@@ -46,6 +48,9 @@ stdClass Object
 блока в читаемом виде - нужно будет явно его привести в 10-ую систему:
 
 ```php
+use SWeb3\SWeb3;
+use SWeb3\Utils;
+
 $node = new SWeb3('https://eth.public-rpc.com');
 $res = $node->call('eth_blockNumber', []);
 $block = Utils::hexToBn($res->result);
@@ -94,6 +99,8 @@ echo 'Balance: ' . Utils::fromWeiToString($balance, 'ether') . PHP_EOL;
 адрес (публичный и приватный ключ):
 
 ```php
+use SWeb3\Accounts;
+
 $account = Accounts::create();
 echo "Public key: " . $account->publicKey . PHP_EOL;
 echo "Private key: " . $account->privateKey . PHP_EOL;
