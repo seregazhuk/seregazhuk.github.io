@@ -1,6 +1,6 @@
 ---
 title: Взаимодействие с Ethereum нодой 
-date: 2025-01-24
+date: 2025-03-09
 categories: [Blockchain, Ethereum, PHP]
 tags: [ethereum, php, blockchain node] 
 ---
