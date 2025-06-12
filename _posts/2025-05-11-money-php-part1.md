@@ -1,5 +1,5 @@
 ---
-title: MoneyPHP. Работа с деньгами в PHP (Часть 1)
+title: "MoneyPHP: Работа с деньгами в PHP (Часть 1)"
 date: 2025-05-11
 categories: [PHP]
 tags: [money, php, moneyphp] 
