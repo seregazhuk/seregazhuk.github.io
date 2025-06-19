@@ -68,7 +68,7 @@ $privateKey = openssl_pkey_new([
 openssl_pkey_export($privateKey, $privateKeyString);
 ```
 
-Так мы получим PEM представление приватного ключа. Если вывести содержимое переменной `$privateKeyString`, то там будет  следующее:
+Так мы получим PEM представление приватного ключа. Если вывести содержимое переменной `$privateKeyString`, то там будет следующее:
 
 ```text
 -----BEGIN PRIVATE KEY-----
@@ -127,6 +127,7 @@ SEQUENCE
 Из этой структуры нам нужно достать приватный и публичный ключи (1-ый `OCTETSTRING` и 3-ий `BITSTRING` элемент):
 
 ```php
+$ecPrivateKeyInfo = $ecPrivateKey->toASN1();  
 $privKeyHex = bin2hex($ecPrivateKeyInfo->at(1)->asOctetString()->string());  
 $pubKeyHex = bin2hex(
     $ecPrivateKeyInfo->at(3)->asTagged()->asExplicit()->asBitString()->string()
