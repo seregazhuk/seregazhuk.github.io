@@ -1,6 +1,6 @@
 ---
 title: Генерируем Tron адрес в PHP 
-date: 2025-06-13
+date: 2025-06-19
 categories: [Blockchain, Tron]
 tags: [Tron, address generation, blockchain] 
 ---
