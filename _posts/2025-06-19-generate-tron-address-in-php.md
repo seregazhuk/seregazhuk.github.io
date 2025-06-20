@@ -76,7 +76,7 @@ echo $addressBase58 . PHP_EOL;
 
 был получен `TTwpCeW31tAxmVsoC6ezWnRtXNg99LiELE` адрес.
 
-## Активация адреса
+## Активация
 
 Чтобы активировать новый адрес в сети Tron нужно с уже существующего аккаунта вызвать любой из 3-ех API:
 - напрямую вызвать [Create Account API](https://developers.tron.network/reference/account-createaccount){:target="_blank"}
