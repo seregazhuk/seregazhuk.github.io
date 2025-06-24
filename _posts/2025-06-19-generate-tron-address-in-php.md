@@ -74,7 +74,7 @@ echo $addressBase58 . PHP_EOL;
 0xc79d712296aa5ce7f386b0844ce474e5135451077c92678c6c64cc0d2b811028
 ``` 
 
-был получен `TTwpCeW31tAxmVsoC6ezWnRtXNg99LiELE` адрес.
+был получен адрес `TTwpCeW31tAxmVsoC6ezWnRtXNg99LiELE`.
 
 ## Активация
 
