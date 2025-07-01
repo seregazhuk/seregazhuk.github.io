@@ -1,5 +1,5 @@
 ---
-title: Взаимодействие с Tron нодой 
+title: Взаимодействие с Tron нодой из PHP 
 date: 2025-07-01
 categories: [Blockchain, Tron, PHP]
 tags: [tron, php, blockchain node] 
