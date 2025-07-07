@@ -2,7 +2,8 @@
 title: Взаимодействие с Tron нодой из PHP 
 date: 2025-07-01
 categories: [Blockchain, Tron, PHP]
-tags: [tron, php, blockchain node] 
+tags: [tron, php, blockchain node]
+description: Разбираем примеры работы с Tron нодой из PHP, типы нод и получение баланса адреса.
 ---
 
 ### Библиотека

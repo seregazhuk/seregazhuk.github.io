@@ -2,7 +2,8 @@
 title: "MoneyPHP: Работа с деньгами в PHP (Часть 1)"
 date: 2025-05-11
 categories: [PHP]
-tags: [money, php, moneyphp] 
+tags: [money, php, moneyphp]
+description: MoneyPHP, как хранить и работать с деньгами в PHP.
 ---
 
 ## Что такое деньги?

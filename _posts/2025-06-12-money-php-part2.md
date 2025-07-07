@@ -3,6 +3,7 @@ title: "MoneyPHP: Работа с деньгами в PHP (Часть 2)"
 date: 2025-06-12
 categories: [PHP]
 tags: [money, php, moneyphp] 
+description: MoneyPHP, работа с деньгами в PHP, конвертация валют в PHP.
 ---
 
 ## Конвертация валют

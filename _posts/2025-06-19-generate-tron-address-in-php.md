@@ -3,6 +3,7 @@ title: Генерируем Tron адрес в PHP
 date: 2025-06-19
 categories: [Blockchain, Tron]
 tags: [tron, address generation, blockchain] 
+description: Шаги и алгоритм генерации Tron адреса из PHP.
 ---
 
 Tron использует account-модель адреса. Адрес — это уникальный идентификатор аккаунта, для работы с которым требуется 

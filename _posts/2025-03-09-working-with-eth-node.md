@@ -2,7 +2,8 @@
 title: Взаимодействие с Ethereum нодой из PHP
 date: 2025-03-09
 categories: [Blockchain, Ethereum, PHP]
-tags: [ethereum, php, blockchain node] 
+tags: [ethereum, php, blockchain node]
+description: Примеры взаимодействия с Ethereum блокчейн нодой в PHP, получение баланса адреса.
 ---
 
 По сути вся работа с блокчейном в PHP - это так или иначе взаимодействие с блокчейн нодой. Все подписанные транзакции
