@@ -1,6 +1,6 @@
 ---
 title: Работа со смарт-контрактами в Tron на PHP
-date: 2025-06-25
+date: 2025-08-01
 categories: [Blockchain, Tron, PHP]
 tags: [tron, php, sign transaction, blockchain, tokens, trc-20] 
 description: Как читать и записывать данные в смарт-контракт Tron на PHP.
