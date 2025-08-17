@@ -1,6 +1,6 @@
 ---
 title: Деплоим Tron смарт-контракт на PHP
-date: 2025-06-25
+date: 2025-08-17
 categories: [Blockchain, Tron, PHP]
 tags: [tron, php, sign transaction, blockchain, tokens, trc-20] 
 ---
