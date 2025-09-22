@@ -1,6 +1,6 @@
 ---
 title: "Приём крипто-платежей в PHP: генерация адреса и проверка баланса"
-date: 2025-08-17
+date: 2025-09-17
 categories: [Blockchain, Ethereum, PHP]
 tags: [ethereum, php, sign transaction, blockchain, temporal, receive crypto] 
 ---
