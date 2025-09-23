@@ -1,5 +1,5 @@
 ---
-title: "Приём крипто-платежей в PHP: генерация адреса и проверка баланса"
+title: "Приём крипто-платежей в PHP (часть 1): генерация адреса и проверка баланса"
 date: 2025-09-17
 categories: [Blockchain, Ethereum, PHP]
 tags: [ethereum, php, sign transaction, blockchain, temporal, receive crypto] 
@@ -20,6 +20,14 @@ tags: [ethereum, php, sign transaction, blockchain, temporal, receive crypto]
 hot-wallet-а, а второй с биржи. В итоге встаёт вопрос: как имея несколько входящих платежей с разных адресов на разные суммы, понять
 что это всё оплата одного ордера?
 
+>В этом материале я не буду подробно касаться нюансов работы с блокчейном Ethereum и деньгами в PHP. Перед началом работы
+>рекомендуется прочитать:
+> - [Генерируем Ethereum EOA адреса в PHP]({% post_url 2025-01-08-generate-ethereum-eoa-in-php %}){:target="_blank"}
+> - [Взаимодействие с Ethereum нодой из PHP]({% post_url 2025-03-09-working-with-eth-node %}){:target="_blank"}
+> - [Подпись ETH транзакций в PHP]({% post_url 2025-03-15-send-eth %}){:target="_blank"}
+> - [MoneyPHP: Работа с деньгами в PHP]({% post_url 2025-03-15-send-eth %}){:target="_blank"}
+{: .prompt-tip }
+
 ## Одноразовые адреса
 
 Решение этой проблемы не совсем очевидное, но лежит на поверхности: **нам нужен уникальный блокчейн адрес под каждый ордер**. 
@@ -33,7 +41,7 @@ hot-wallet-а, а второй с биржи. В итоге встаёт воп�
 - `temporal/sdk` ([PHP SDK для Temporal](https://github.com/temporalio/sdk-php){:target="_blank"})
 - `moneyphp/money` ([библиотека для работы с деньгами](https://github.com/moneyphp/money){:target="_blank"})
 - `symfony/dotenv` ([чтение env-файлов](https://github.com/symfony/dotenv){:target="_blank"})
-- `drlecks/simple-web3-php` ([библиотека для работы с Ethereum](https://github.com/drlecks/Simple-Web3-Php){target="_blank"})
+- `drlecks/simple-web3-php` ([библиотека для работы с Ethereum](https://github.com/drlecks/Simple-Web3-Php){:target="_blank"})
 
 Итак, начнем с генерации адреса для инвойса. Представим, что у нас инвойс на 0.001 ETH:
 
@@ -209,11 +217,18 @@ class AcceptCryptoWorkflow
 [бесплатную публичную Sepolia ноду](https://ethereum-sepolia-rpc.publicnode.com){:target="_blank"}:
 
 ```php
+// worker.php
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__.'/.env');
+
 $factory = WorkerFactory::create();
 $worker = $factory->newWorker();
 
-$node = new \SWeb3\SWeb3('https://ethereum-sepolia-rpc.publicnode.com');
-$worker->registerActivity(AddressActivity::class, fn() => new AddressActivity($node));
+$node = new \SWeb3\SWeb3($_ENV['NODE_ADDRESS']); // https://ethereum-sepolia-rpc.publicnode.com
+$worker->registerActivity(
+    AddressActivity::class, 
+    fn() => new AddressActivity($node)
+);
 $worker->registerWorkflowTypes(AcceptCryptoWorkflow::class);
 
 $factory->run();
