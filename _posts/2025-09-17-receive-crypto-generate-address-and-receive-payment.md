@@ -263,6 +263,10 @@ $request = new \App\AddressWithAmount($invoiceAddress, $amount);
 $workflowClient->start($workflow, $request);
 ```
 
+Пример выполнения воркфлоу с проверкой баланса каждые 3 секунды:
+
+>![](/assets/img/posts/receive-crypto-has-enough-balance.png)
+
 ## Заключение
 
 И в принципе логика именно "получения крипты" на этом закончена. Мы сгенерировали адрес под ордер, дождались нужного
