@@ -38,9 +38,9 @@ hot-wallet-а, а второй с биржи. В итоге встаёт воп�
 
 Пакеты, которые нам понадобятся:
 - `temporal/sdk` ([PHP SDK для Temporal](https://github.com/temporalio/sdk-php){:target="_blank"})
-- `moneyphp/money` ([библиотека для работы с деньгами](https://github.com/moneyphp/money){:target="_blank"})
+- `moneyphp/money` ([работа с деньгами](https://github.com/moneyphp/money){:target="_blank"})
 - `symfony/dotenv` ([чтение env-файлов](https://github.com/symfony/dotenv){:target="_blank"})
-- `drlecks/simple-web3-php` ([библиотека для работы с Ethereum](https://github.com/drlecks/Simple-Web3-Php){:target="_blank"})
+- `drlecks/simple-web3-php` ([взаимодействие с Ethereum](https://github.com/drlecks/Simple-Web3-Php){:target="_blank"})
 
 Итак, начнем с генерации адреса для инвойса. Представим, что у нас инвойс на 0.001 ETH:
 
