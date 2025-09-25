@@ -266,6 +266,56 @@ $workflowClient->start($workflow, $request);
 
 >![](/assets/img/posts/receive-crypto-has-enough-balance.png)
 
+## Отмена воркфлоу
+
+С текущим подходом "ждем бесконечно" нашу систему легко можно заабьюзить: можно насоздавать ордеров на оплату и 
+просто их не оплачивать. Воркфлоу будут вечно висеть, тем самым создавая нагрузку на нашу систему. В зависимости 
+от бизнеса нужно в любом случае останавливать воркфлоу, подождав оплаты определенное время. Если за это время оплаты 
+не произошло – отменять ордер.
+
+Добавим эту логику в воркфлоу:
+
+```php
+#[WorkflowInterface]
+class AcceptCryptoWorkflow
+{
+    private bool $paymentReceived = false;
+
+    public function __construct() {
+        $this->addressActivity = Workflow::newActivityStub(
+            AddressActivity::class,
+            ActivityOptions::new()->withStartToCloseTimeout(10)
+        );
+    }
+
+    #[WorkflowMethod(name: 'acceptCrypto')]
+    public function acceptCrypto(AddressWithAmount $request): Generator
+    {
+        $waitingBalance = Workflow::async(
+            function () use ($request) {
+                while (! yield $this->addressActivity->hasEnoughBalance($request)) {
+                    yield Workflow::timer(3);
+                }
+                $this->paymentReceived = true;
+            }
+        );
+        yield Workflow::awaitWithTimeout('1 day', fn() => $this->paymentReceived);
+        if (!$this->paymentReceived) {
+            $waitingBalance->cancel();
+            // mark order as canceled
+        }
+
+        // mark order as complete
+    }
+}
+```
+
+В примере выше опрос баланса мы запускаем "в фоне, параллельно основному воркфлоу". Дальше запускается таймер, который
+ждёт либо один день, либо когда будет выполнен платеж (закончится проверка баланса). Далее если на данный момент платеж
+не произошел, то мы отменяем проверку баланса. При отмене фоновой задачи будет в итоге отменен и сам воркфлоу.
+
+>![](/assets/img/posts/receive-crypto-cancelled-workflow.png)
+
 ## Заключение
 
 И в принципе логика именно "получения крипты" на этом закончена. Мы сгенерировали адрес под ордер, дождались нужного
