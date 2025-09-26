@@ -23,7 +23,11 @@ public function acceptCrypto(AddressWithAmount $request): Generator
             $this->paymentReceived = true;
         }
     );
-    yield Workflow::awaitWithTimeout(self::WAIT_FOR_PAYMENT_TIMEOUT, fn() => $this->paymentReceived);
+    yield Workflow::awaitWithTimeout(
+        self::WAIT_FOR_PAYMENT_TIMEOUT, 
+        fn() => $this->paymentReceived
+    );
+    
     if (!$this->paymentReceived) {
         $waitingBalance->cancel();
         // mark order as canceled
@@ -150,7 +154,11 @@ class AcceptCryptoWorkflow
                 $this->paymentReceived = true;
             }
         );
-        yield Workflow::awaitWithTimeout(self::WAIT_FOR_PAYMENT_TIMEOUT, fn() => $this->paymentReceived);
+        yield Workflow::awaitWithTimeout(
+            self::WAIT_FOR_PAYMENT_TIMEOUT, 
+            fn() => $this->paymentReceived
+        );
+        
         if (!$this->paymentReceived) {
             $waitingBalance->cancel();
             // mark order as canceled
