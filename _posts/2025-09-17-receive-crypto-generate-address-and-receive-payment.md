@@ -280,6 +280,8 @@ $workflowClient->start($workflow, $request);
 class AcceptCryptoWorkflow
 {
     private bool $paymentReceived = false;
+    
+    private const string WAIT_FOR_PAYMENT_TIMEOUT = '1 day';
 
     public function __construct() {
         $this->addressActivity = Workflow::newActivityStub(
@@ -299,7 +301,7 @@ class AcceptCryptoWorkflow
                 $this->paymentReceived = true;
             }
         );
-        yield Workflow::awaitWithTimeout('1 day', fn() => $this->paymentReceived);
+        yield Workflow::awaitWithTimeout(self::WAIT_FOR_PAYMENT_TIMEOUT, fn() => $this->paymentReceived);
         if (!$this->paymentReceived) {
             $waitingBalance->cancel();
             // mark order as canceled
